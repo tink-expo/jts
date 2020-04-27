@@ -83,6 +83,10 @@ public class MinimumBoundingCircleTest extends GeometryTestCase {
     doMinDiameterTest("POLYGON ((100 200, 300 150, 110 100, 100 200))", "LINESTRING (300 150, 100 200)");
     doMinDiameterTest("POLYGON ((110 200, 300 150, 100 100, 110 200))", "LINESTRING (300 150, 100 100)");
   }
+
+  public void testMinDiameterPolygonOrdersensitive() {
+    doMinDiameterTest("POLYGON ((-70 200, 120 150, -80 100, -70 200))", "LINESTRING (120 150, -80 100)");
+  }
   
   static final double TOLERANCE = 1.0e-5;
   
