@@ -141,6 +141,14 @@ public class ConvexHullTest extends TestCase {
     assertTrue(convexHull.equalsExact(geometry.convexHull()));
   }
 
+  public void testColinear() throws Exception {
+    Geometry actualGeometry = reader.read("MULTIPOINT (0 0, 0 4, 6 3, 2 1, 4 2, 6 0, 0 0)").convexHull();
+    Geometry expectedGeometry = reader.read("POLYGON ((0 0, 0 4, 6 3, 6 0, 0 0))");
+    assertEquals(expectedGeometry.toString(), actualGeometry.toString());
+    assertTrue(true);
+  }
+
+
 
 
 }
