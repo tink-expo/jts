@@ -33,7 +33,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit-version>3.7</junit-version>
+        <junit-version>4.12</junit-version>
         <jdom-version>2.0.6</jdom-version>
         <jump.version>1.2</jump.version>
         <json-simple-version>1.1.1</json-simple-version>
@@ -265,6 +265,23 @@
                 <version>2.5.3</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.5.1</version>
+                <configuration>
+                    <targetClasses>
+                        <param>org.locationtech.jts**</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>org.locationtech.jts**.*Test</param>
+                    </targetTests>
+                    <excludedTestClasses>
+                        <param>org.locationtech.jts**.*PerfTest</param>
+                        <param>org.locationtech.jts**.*StressTest</param>
+                    </excludedTestClasses>
                 </configuration>
             </plugin>
         </plugins>
